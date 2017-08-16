@@ -1,0 +1,39 @@
+<%#<h1>Students#student_page</h1>
+<p>Find me in app/views/students/student_page.html.erb</p>%>
+
+
+<h1>Coding Dojo USA</h1>
+<h3><%= @school.branch%></h3>
+<p>Address:<%= @school.street%></p>
+<p>City:<%= @school.city%></p>
+<p>State:<%= @school.state%></p>
+
+<table>
+    <thead>
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            
+        </tr>
+    </thead>
+    
+    <a href="/dojos/<%=@school.id%>/students/new">New Student</a>
+    <tbody>
+        
+        <% @dojo_students.each do |i| %>
+        <tr>
+        <td><%=i.first_name%></td>
+        <td><%=i.last_name%></td>
+        <td><%=i.email%></td>
+        <% end %>
+        
+        
+
+        </tr>
+        
+      
+    </tbody>
+</table>
+
+

@@ -1,0 +1,113 @@
+<h3>Welcome,&nbsp <%=current_user.first_name%></h3><br><br>
+
+<a href="">Edit My Profile</a>
+
+<br><br>
+<h3>Here are some of the events at your state:</h3>
+<br>
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Date</th>
+            <th>Location</th>
+            <th>State</th>
+            <th>Action/Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @in_states_event.each do |e| %>
+        <tr>
+            <td><%=e.meetings%></td>
+            <td><%=e.date%></td>
+            <td><%=e.city%></td>
+            <td><%=e.state%></td>
+
+                    <td>Attending</td>
+                    <% else %>
+                    <td>Not Attending</td>
+          
+
+            
+            <form action="/events/<%= current_user.id %>" method="post">
+            <input type="hidden" name="_method" value="patch">
+                <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+                <% if e.status == "false" %>
+                <td><input type="hidden" name="attending" value="yes">
+                    <input type="submit" Value="Attend"></td>
+                <% else %>
+                <td><input type="hidden" name="attending" value="no">
+                    <input type="submit" Value="Not Attend"></td>
+                <% end %>
+            </form>
+        </tr>
+        <% end %>
+    </tbody>
+</table><br><br>
+
+<h3>Here are some of the events in your state:</h3>
+<br>
+
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Date</th>
+            <th>Location</th>
+            <th>State</th>
+            <th>Action/Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @other_states_event.each do |e| %>
+        <tr>
+            <td><%=e.meetings%></td>
+            <td><%=e.date%></td>
+            <td><%=e.city%></td>
+            <td><%=e.state%></td>
+            <% if @attend %>
+                <td>Attending</td>
+                <% else %>
+                <td>Not Attending</td>
+            <% end %>
+
+            
+            <form action="/events/<%= current_user.id %>" method="post">
+            <input type="hidden" name="_method" value="patch">
+                <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+                <% if e.status == "false" %>
+                <td><input type="hidden" name="attending" value="yes">
+                    <input type="submit" Value="Attend"></td>
+                <% else %>
+                <td><input type="hidden" name="attending" value="no">
+                    <input type="submit" Value="Not Attend"></td>
+                <% end %>
+            </form>
+        </tr>
+        <% end %>
+    </tbody>
+</table>
+
+
+
+<h2>Add Event</h2>
+<form action="/create" method="post">  
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <label>Name</label>
+<input type="text" name="name">
+    <label>Date</label>
+    <input type="date" name="date">
+    <label>Location</label>
+    <input type="text" name="city">
+    <label>State</label><%= select_tag :state, options_for_select(us_states) %> <br>
+    <input type="submit" value="Add Event"> 
+    <br>
+    <br>
+    <br>
+    <br>
+    
+    
+</form>
+

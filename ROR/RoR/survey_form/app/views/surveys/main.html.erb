@@ -1,0 +1,28 @@
+<%#<h1>Surveys#main</h1>
+<p>Find me in app/views/surveys/main.html.erb</p>%>
+<h1>Dojo Survey</h1>
+
+
+
+<form action="/surveys/main" method="post">
+<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+<label>Your Name:</label><br>
+<input type="text" name="name"><br><br>     
+<label>Dojo Location</label><br>
+<select name="location"><br>
+  <option value="losangeles">Los Angeles</option>
+  <option value="mountainview">Mountain View</option>
+  <option value="chicago">chicago</option>
+  <option value="sanfran">San Francisco</option>
+</select><br><br>
+<label>Favorite Language:</label><br>
+<select name="language">
+  <option value="python">Python</option>
+  <option value="ruby">Ruby</option>
+  <option value="javascript">Javascript</option>
+  <option value="hc">HTML/CSS</option>
+</select><br><br>
+<label>Comments:(optional)</label><br>
+<textarea name="comments" id="" cols="30" rows="10"></textarea>
+<input type="submit" value="Submit">
+</form>

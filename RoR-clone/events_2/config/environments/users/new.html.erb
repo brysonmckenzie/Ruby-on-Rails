@@ -1,0 +1,30 @@
+<h1>Registration Page</h1>
+
+<fieldset> 
+<legend>Registration</legend> 
+<form action="/users" method="post">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <label>First Name</label><br>
+	<input type="text" name="user[first_name]"><br>
+    <label>Last Name</label><br>
+	<input type="text" name="userlast_name]"><br>
+    <label>Email:</label><br>
+	<input type="text" name="user[email]"><br>
+    <label>Location</label><br>
+	<input type="text" name="city">
+    <%= select_tag :state, options_for_select(us_states) %> <br>
+    <label>Password</label><br>
+	<input type="password" name="user[password]"><br>
+    <label>Password Confirmation</label><br>
+	<input type="password" name"user[password_confirmation]"><br><br>
+    <input type="submit" value="Join"><br><br>
+    <a href='/login'>Member? Login here</a>
+
+     <% if flash[:errors] %>
+    <% flash[:errors].each do |e| %>
+      <%= e %>
+    <% end %>
+  <% end %>
+    
+</form>
+</fieldset>

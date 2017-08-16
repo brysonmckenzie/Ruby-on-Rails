@@ -1,0 +1,33 @@
+<%#<h1>Dojos#result</h1>
+<p>Find me in app/views/dojos/result.html.erb</p>%>
+
+
+<h1>New Dojo</h1><br><br>
+
+<form action="/create" method ="post">
+<input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+<label>Branch:</label><br>
+<select name="branch">
+    <option value="CD Chicago">CD Chicago</option>
+    <option value="CD Los Angeles">CD Los Angeles</option>
+    <option value="CD Seattle">CD Seattle</option>
+    <option value="CD Silicon Valley">CD Silicon Valley</option>
+    <option value="CD Dallas">CD Dallas</option>
+    <option value="CD Washington">CD Washington DC</option>
+</select>
+</select><br>
+<label>Address:</label><br>
+<input type="text" name="street"><br>
+<label>City:</label><br>
+<input type="text" name="city"><br>
+<label>State:</label><br>
+<input type="text" name="state"><br><br>
+<input type="submit" value="Create">
+</form><br>
+
+
+<a href="/">Go Back</a>
+
+
+
+

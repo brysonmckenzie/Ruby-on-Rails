@@ -1,0 +1,11 @@
+<%#<h1>Surveys#result</h1>
+<p>Find me in app/views/surveys/result.html.erb</p>%>
+<% @result.each do |r| %>
+
+<h1>Submitted Information</h1>
+    <p>Name:<%= r.name%></p>
+    <p>Dojo Location:<%= r.location%></p>
+    <p>Favorite Language:<%= r.language%></p>
+    <p>Comment:<%= r.comment%></p>
+
+<% end %>

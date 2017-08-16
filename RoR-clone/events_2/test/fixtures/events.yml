@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  meetings: MyString
+  date: 2017-05-30
+  city: MyString
+  state: MyString
+  status: MyString
+  user_id: 
+
+two:
+  meetings: MyString
+  date: 2017-05-30
+  city: MyString
+  state: MyString
+  status: MyString
+  user_id: 

@@ -1,0 +1,43 @@
+<h1>Welcome <%=@user.username%></h1>
+
+<h2>Tasks</h2>
+
+<form action="/tasks/create"method="post">
+<input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+<label>Create Task</label><br>
+<input type="text" name="task"><br>
+<input type="submit" value="Create"><br><br>
+
+<a href="logins/logout">LogOut</a>
+
+
+<table>
+    <thead>
+        <tr>
+            <th>Task&nbsp&nbsp&nbsp</th>&nbsp
+            <th>&nbsp&nbsp</th>&nbsp
+            <th>Status</th>
+        </tr>
+    
+    </thead>
+    <tbody>
+        <% @tasks.each do |t| %>
+        <tr>
+        <td><%=t.list%></td>
+        <% if t.status == false %>
+            <td><font color="red">Incomplete</td>
+         <%else%>
+            <td><font color="green">Complete</font></td>
+        <%end%>
+        <td><a href="tasks/<%=t.id%>/delete">Destroy</a>
+        </td>
+        <td>
+        <form action=""></form>
+        <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+        <input type="button" value="Complete">
+        </form>
+        </td>
+        </tr>
+        <% end %>
+    </tbody>
+</table>
